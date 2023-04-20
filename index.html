@@ -121,6 +121,7 @@
 <button onclick="insertSignature()">Insert Signature</button>
 <textarea id="message" rows="10" cols="50"></textarea>
 <button onclick="copyToClipboard()" class="centered-button">Copy to Clipboard</button>
+<button onclick="clearText()">Clear Text</button>
 </div>
 <script>
     function calculate() {
@@ -184,6 +185,11 @@ function insertMessage2() {
         document.execCommand("copy");
         alert("Message copied to clipboard!");
     }
+    
+    function clearText() {
+    document.getElementById("message").value = "";
+}
+
 </script>
 
 
