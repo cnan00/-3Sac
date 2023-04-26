@@ -87,8 +87,8 @@
             <option value="0.1">10% 5-15 pcs</option>
             <option value="0.15">15% 16-25 pcs</option>
             <option value="0.2">20% 16+ pcs    </option>
-            <option value="0.2">20% FLASH    </option>
-            <option value="0.25">25% FLASH    </option>
+            <option value="0.15">15% Weekend    </option>
+            <option value="0.25">25% Weekend    </option>
         </select>
         
         <p>Choose a financing option:</p>
@@ -119,7 +119,7 @@
 <span class="button-spacer">...</span>
 
 <button onclick="insertMessage1()">Insert Preformed Message SMSM</button>
-<button onclick="insertMessage2()">Insert Preformed Message Flash</button>
+<button onclick="insertMessage2()">Insert Preformed Message Weekend</button>
 <button onclick="insertSignature()">Insert Signature</button>
 <textarea id="message" rows="10" cols="50"></textarea>
 <button onclick="copyToClipboard()" class="centered-button">Copy to Clipboard</button>
@@ -174,7 +174,7 @@ function insertMessage2() {
     const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
     const discount = parseFloat(document.getElementById("discount").value) * 100;
 
-    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great Flash Sale right now with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great Weekend Sale right now with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
     insertText(message2);
 }
 
