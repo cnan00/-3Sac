@@ -174,7 +174,7 @@ function insertMessage2() {
     const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
     const discount = parseFloat(document.getElementById("discount").value) * 100;
 
-    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great Weekend Sale right now with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great, Showroom exclusive, Weekend Sale starting Friday with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
     insertText(message2);
 }
 
