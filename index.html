@@ -122,7 +122,7 @@
             </select>
             <br>
             <button onclick="calculate()">Calculate</button>
-            </br>
+            
             <hr>
             
             <div class="result-wrapper">
@@ -151,7 +151,79 @@
         </div>
     </div>
     <script>
+    function calculate() {
+        const purchasePrice = document.getElementById("purchasePrice").value;
+        const discount = document.getElementById("discount").value;
+        const financing = document.getElementById("financing").value;
         
-    </script>
+        const discountedPrice = purchasePrice * (1 - discount);
+        const monthlyCost = discountedPrice / financing;
+        
+        document.getElementById("discountedPrice").textContent = `$${discountedPrice.toFixed(2)}`;
+        document.getElementById("monthlyCost").textContent = `$${monthlyCost.toFixed(2)} per month`;
+    }
+
+    function insertText(text) {
+  const messageTextarea = document.getElementById("message");
+  const startPos = messageTextarea.selectionStart;
+  const endPos = messageTextarea.selectionEnd;
+  const textBeforeCursor = messageTextarea.value.substring(0, startPos);
+  const textAfterCursor = messageTextarea.value.substring(endPos);
+  messageTextarea.value = textBeforeCursor + text + textAfterCursor;
+  messageTextarea.selectionStart = startPos + text.length;
+  messageTextarea.selectionEnd = startPos + text.length;
+  messageTextarea.focus();
+}
+
+    function insertDiscountedPrice() {
+        const discountedPrice = document.getElementById("discountedPrice").textContent;
+        insertText(discountedPrice);
+    }
+
+    function insertFinancingDuration() {
+        const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
+        insertText(financingDuration);
+    }
+
+    function insertMonthlyFinancedPrice() {
+        const monthlyFinancedPrice = document.getElementById("monthlyCost").textContent;
+        insertText(monthlyFinancedPrice);
+    }
+
+    function insertSignature() {
+        const signature = "Thanks!\n(YOUR NAME)\nLoveSac Mall of America";
+        insertText(signature);
+    }
+function insertMessage1() {
+    const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
+    const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
+
+    const message1 = `Good afternoon (customer), I wanted to reach out today because we are running a great 0% financing promotion with our LoveSac Credit Card for ${financingDuration}! With our current Stack More, Save More promotion, you could be sitting comfortably in your new couch in 1-2 weeks for as little as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+    insertText(message1);
+}
+function insertMessage2() {
+    const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
+    const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
+    const discount = parseFloat(document.getElementById("discount").value) * 100;
+
+    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great, Showroom exclusive, Weekend Sale starting Friday with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+    insertText(message2);
+}
+
+
+
+    function copyToClipboard() {
+        const messageTextarea = document.getElementById("message");
+        messageTextarea.select();
+        messageTextarea.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+        alert("Message copied to clipboard!");
+    }
+    
+    function clearText() {
+    document.getElementById("message").value = "";
+}
+
+</script>
 </body>
 </html>
