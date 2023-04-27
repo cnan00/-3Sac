@@ -139,9 +139,16 @@
     }
 
     function insertText(text) {
-        const messageTextarea = document.getElementById("message");
-        messageTextarea.value += text;
-    }
+  const messageTextarea = document.getElementById("message");
+  const startPos = messageTextarea.selectionStart;
+  const endPos = messageTextarea.selectionEnd;
+  const textBeforeCursor = messageTextarea.value.substring(0, startPos);
+  const textAfterCursor = messageTextarea.value.substring(endPos);
+  messageTextarea.value = textBeforeCursor + text + textAfterCursor;
+  messageTextarea.selectionStart = startPos + text.length;
+  messageTextarea.selectionEnd = startPos + text.length;
+  messageTextarea.focus();
+}
 
     function insertDiscountedPrice() {
         const discountedPrice = document.getElementById("discountedPrice").textContent;
