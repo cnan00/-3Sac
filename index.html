@@ -88,6 +88,11 @@
             text-align: center;
             width: 100%;
         }
+        h3 {
+            color: #0098A7;
+            text-align: center;
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -136,32 +141,46 @@
             </div>
         </div>
         <div class="form-section">
-            <h2>Message:</h2>
-            <button onclick="insertDiscountedPrice()">Insert Discounted Price</button>
-            <button onclick="insertFinancingDuration()">Insert Financing Duration</button>
-            <button onclick="insertMonthlyFinancedPrice()">Insert Monthly Financed Price</button>
-            <span class="button-spacer">...</span>
+          
+            
+            
 
-            <button onclick="insertMessage1()">Insert Preformed Message SMSM</button>
-            <button onclick="insertMessage2()">Insert Preformed Message Weekend</button>
-            <button onclick="insertSignature()">Insert Signature</button>
-            <textarea id="message" rows="10" cols="50"></textarea>
-            <button onclick="copyToClipboard()" class="centered-button">Copy to Clipboard</button>
-            <button onclick="clearText()">Clear Text</button>
+            <div class="form-section">
+    <h2>Message:</h2>
+    <button onclick="insertDiscountedPrice()">Insert Discounted Price</button>
+    <button onclick="insertFinancingDuration()">Insert Financing Duration</button>
+    <button onclick="insertMonthlyFinancedPrice()">Insert Monthly Financed Price</button>
+    <h3>...</h3>
+    <select id="weekendMessageOption">
+        <option value="1">Weekend Sale Message 1</option>
+        <option value="2">Weekend Sale Message 2</option>
+        <option value="3">Weekend Sale Message 3</option>
+        <option value="4">SMSM Sale Message 1</option>
+        <option value="5">SMSM Sale Message 2</option>
+        <option value="6">SMSM Sale Message 3</option>
+    </select>
+    <button onclick="insertWeekendMessage()">Insert Preformed Message</button>
+    <button onclick="insertSignature()">Insert Signature</button>
+    <textarea id="message" rows="10" cols="50"></textarea>
+    
+    <button onclick="copyToClipboard()" class="centered-button">Copy to Clipboard</button>
+    <button onclick="clearText()">Clear Text</button>
+</div>
         </div>
     </div>
     <script>
-    function calculate() {
-        const purchasePrice = document.getElementById("purchasePrice").value;
-        const discount = document.getElementById("discount").value;
-        const financing = document.getElementById("financing").value;
-        
-        const discountedPrice = purchasePrice * (1 - discount);
-        const monthlyCost = discountedPrice / financing;
-        
-        document.getElementById("discountedPrice").textContent = `$${discountedPrice.toFixed(2)}`;
-        document.getElementById("monthlyCost").textContent = `$${monthlyCost.toFixed(2)} per month`;
-    }
+   function calculate() {
+    const purchasePrice = document.getElementById("purchasePrice").value;
+    const discount = document.getElementById("discount").value;
+    const financing = document.getElementById("financing").value;
+    
+    const discountedPrice = purchasePrice * (1 - discount);
+    const monthlyCost = (financing == 0) ? "Not Applicable" : `$${(discountedPrice / financing).toFixed(2)} per month`;
+    
+    document.getElementById("discountedPrice").textContent = `$${discountedPrice.toFixed(2)}`;
+    document.getElementById("monthlyCost").textContent = monthlyCost;
+}
+
 
     function insertText(text) {
   const messageTextarea = document.getElementById("message");
@@ -185,31 +204,68 @@
         insertText(financingDuration);
     }
 
-    function insertMonthlyFinancedPrice() {
-        const monthlyFinancedPrice = document.getElementById("monthlyCost").textContent;
-        insertText(monthlyFinancedPrice);
+    function insertFinancingDuration() {
+    const financing = document.getElementById("financing").value;
+    if (financing === "0") {
+        alert("Financing is not selected. Please select a financing option.");
+        return;
     }
+    const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
+    insertText(financingDuration);
+}
+
+function insertMonthlyFinancedPrice() {
+    const financing = document.getElementById("financing").value;
+    if (financing === "0") {
+        alert("Financing is not selected. Please select a financing option.");
+        return;
+    }
+    const monthlyFinancedPrice = document.getElementById("monthlyCost").textContent;
+    insertText(monthlyFinancedPrice);
+}
+
+
 
     function insertSignature() {
         const signature = "Thanks!\n(YOUR NAME)\nLoveSac Mall of America";
         insertText(signature);
     }
-function insertMessage1() {
-    const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
-    const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
 
-    const message1 = `Good afternoon (customer), I wanted to reach out today because we are running a great 0% financing promotion with our LoveSac Credit Card for ${financingDuration}! With our current Stack More, Save More promotion, you could be sitting comfortably in your new couch in 1-2 weeks for as little as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
-    insertText(message1);
-}
-function insertMessage2() {
+function insertWeekendMessage() {
     const financingDuration = document.getElementById("financing").options[document.getElementById("financing").selectedIndex].text;
     const monthlyCost = parseFloat(document.getElementById("monthlyCost").textContent.replace(/[^0-9.]/g, ''));
     const discount = parseFloat(document.getElementById("discount").value) * 100;
+    const weekendMessageOption = document.getElementById("weekendMessageOption").value;
 
-    const message2 = `Good afternoon (customer), I wanted to reach out today because we are running a great, Showroom exclusive, Weekend Sale starting Friday with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
-    insertText(message2);
+    let message;
+    switch (weekendMessageOption) {
+        case "1":
+            message = `Good afternoon (customer), I wanted to reach out today because we are running a great, Showroom exclusive, Weekend Sale starting Friday with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+            break;
+        case "2":
+            message = `Don't miss out on our amazing weekend sale! For a limited time, you can get ${discount}% off your purchase and financing options starting at just $${monthlyCost.toFixed(2)} per month with our LoveSac Credit Card. Come visit us at the Showroom to see what Total Comfort can do for you!`;
+            break;
+        case "3":
+            message = `We wanted to let you know about our exciting weekend sale! You can save up to ${discount}% on your purchase and get financing options as low as $${monthlyCost.toFixed(2)} per month with our LoveSac Credit Card. Visit us at the Showroom to try out our comfortable and customizable furniture!`;
+            break;
+        case "4":
+            message = `Good afternoon (customer), exciting news – our Stack More Save More sale starts today with discounts up to ${discount}% and ${financingDuration} financing! The more you buy, the more you save. With this amazing offer, your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month! Give us a call or text the showroom, and let us help bring total comfort and style to your home.
+`;
+            break;
+        case "5":
+            message = `Hello (customer), we have a fantastic Stack More Save More sale happening right now! Enjoy up to ${discount}% off and benefit from our ${financingDuration} financing option. This means your monthly payments can be as low as $${monthlyCost.toFixed(2)} per month! Don't hesitate to call or text the showroom, and let us assist you in upgrading your home with our customizable furniture.
+`;
+            break;
+        case "6":
+            message = `Greetings (customer), our Stack More Save More sale is now live, offering you discounts of up to ${discount}% and ${financingDuration} financing! Take advantage of this opportunity, and your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month. Reach out to us by calling or texting the showroom, and we'll help you find the perfect pieces to enhance your living space.
+`;
+            break;
+        default:
+            alert("Invalid weekend message option selected");
+            return;
+    }
+    insertText(message);
 }
-
 
 
     function copyToClipboard() {
