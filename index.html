@@ -148,6 +148,14 @@
                 <h2>Monthly Cost:</h2>
                 <p id="monthlyCost"></p>
             </div>
+            
+                <div class="result-wrapper">
+    <h2>Monthly Cost:</h2>
+    <p id="monthlyCost"></p>
+    <div id="qrCode"></div>
+    <p class="qr-text">Scan to view on mobile</p>
+</div>
+
         </div>
     
 
@@ -182,7 +190,10 @@
     
     const discountedPrice = purchasePrice * (1 - discount);
     const monthlyCost = (financing == 0) ? "Not Applicable" : `$${(discountedPrice / financing).toFixed(2)} per month`;
-    
+    const qrCodeDiv = document.getElementById("qrCode");
+const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("https://www.lovesac.com")}`;
+qrCodeDiv.innerHTML = `<img src="${qrCodeUrl}" alt="QR Code">`;
+
     document.getElementById("discountedPrice").textContent = `$${discountedPrice.toFixed(2)}`;
     document.getElementById("monthlyCost").textContent = monthlyCost;
 }
