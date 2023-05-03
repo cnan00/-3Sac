@@ -120,15 +120,14 @@
                 <option value="0.1">10% 5-15 pcs</option>
                 <option value="0.15">15% 16-25 pcs</option>
                 <option value="0.2">20% 16+ pcs</option>
-                <option value="0.15">15% Weekend</option>
-                <option value="0.25">25% Weekend</option>
+                <option value="0.25">25% Heroes</option>
             </select>
             
             <p>Choose a financing option:</p>
             <select id="financing">
                 <option value="0">No Financing</option>
-                <option value="6">6 months</option>
-                <option value="12">12 months</option>
+                <option value="6">6 months (Heroes)</option>
+                <option value="12">12 months (Heroes)</option>
                 <option value="24">24 months</option
                 <option value="48">48</option>
                 <option value="60">60 months</option>
@@ -158,9 +157,9 @@
     <button onclick="insertMonthlyFinancedPrice()">Insert Monthly Financed Price</button>
     <h3>...</h3>
     <select id="weekendMessageOption">
-        <option value="1">Weekend Sale Message 1</option>
-        <option value="2">Weekend Sale Message 2</option>
-        <option value="3">Weekend Sale Message 3</option>
+        <option value="1">Heroes Sale Message 1</option>
+        <option value="2">Heroes Sale Message 2</option>
+        <option value="3">Heroes Sale Message 3</option>
         <option value="4">SMSM Sale Message 1</option>
         <option value="5">SMSM Sale Message 2</option>
         <option value="6">SMSM Sale Message 3</option>
@@ -246,13 +245,13 @@ function insertWeekendMessage() {
     let message;
     switch (weekendMessageOption) {
         case "1":
-            message = `Good afternoon (customer), I wanted to reach out today because we are running a great, Showroom exclusive, Weekend Sale starting Friday with ${discount}% off and ${financingDuration} financing! This would bring your monthly payments to as low as $${monthlyCost.toFixed(2)} per month! Feel free to call or text the Showroom here and we will help bring Total Comfort to your home!`;
+            message = `Thank you for all that you do! As a small token of our appreciation, we're offering a Heroes Discount of ${discount}% off your purchase, with optional ${financingduration} interest-free financing. That means you could be enjoying Total Comfort for as low as $${monthlyCost.toFixed(2)} per month! Offer ends 5/31, so don't wait to take advantage`;
             break;
         case "2":
-            message = `Don't miss out on our amazing weekend sale! For a limited time, you can get ${discount}% off your purchase and financing options starting at just $${monthlyCost.toFixed(2)} per month with our LoveSac Credit Card. Come visit us at the Showroom to see what Total Comfort can do for you!`;
+            message = `"To our heroes in healthcare, first responders, military, teachers, and veterinarians - thank you for your dedication and service. As a special thank you, we're offering a 25% Heroes Discount on your purchase, plus the option for ${financingduration} interest-free financing. That means you can enjoy your new furniture for as little as $${monthlyCost.toFixed(2)} per month! Don't miss out on this limited-time offer.`;
             break;
         case "3":
-            message = `We wanted to let you know about our exciting weekend sale! You can save up to ${discount}% on your purchase and get financing options as low as $${monthlyCost.toFixed(2)} per month with our LoveSac Credit Card. Visit us at the Showroom to try out our comfortable and customizable furniture!`;
+            message = `You're a hero every day, and we're honored to offer our Heroes Discount to show our appreciation. Enjoy ${discount}% off your purchase, with optional ${financingduration} interest-free financing. That means you can bring home Total Comfort for as low as $${monthlyCost.toFixed(2)} per month! Thank you for all that you do.`;
             break;
         case "4":
             message = `Good afternoon (customer), exciting news – our Stack More Save More sale starts today with discounts up to ${discount}% and ${financingDuration} financing! The more you buy, the more you save. With this amazing offer, your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month! Give us a call or text the showroom, and let us help bring total comfort and style to your home.
