@@ -166,6 +166,7 @@
         <option value="4">SMSM Sale Message 1</option>
         <option value="5">SMSM Sale Message 2</option>
         <option value="6">SMSM Sale Message 3</option>
+        <option value="7">Memorial Day Sale Message 3</option>
     </select>
     <button onclick="insertWeekendMessage()">Insert Preformed Message</button>
     <button onclick="insertSignature()">Insert Signature</button>
@@ -266,6 +267,10 @@ function insertWeekendMessage() {
             break;
         case "6":
             message = `Greetings (customer), our Stack More Save More sale is now live, offering you discounts of up to ${discount}% and ${financingDuration} financing! Take advantage of this opportunity, and your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month. Reach out to us by calling or texting the showroom, and we'll help you find the perfect pieces to enhance your living space.
+`;
+            break;
+        case "7":
+            message = `Celebrate Memorial Day with us and enjoy our special limited-time offer! Get ${discount}% off on all purchases, plus take advantage of our ${financingDuration} interest-free financing option. This means you can bring home your dream furniture for as low as $${monthlyCost.toFixed(2)} per month. This discount, financing offer, and affordable monthly cost are available to everyone as a token of our appreciation for your support. Transform your space with our high-quality furniture and experience ultimate comfort while enjoying flexible payment options. Don't miss out on this incredible deal! Visit our website or showroom today and discover the perfect furniture pieces for your home.
 `;
             break;
         default:
