@@ -149,6 +149,19 @@
                 <p id="monthlyCost"></p>
             </div>
             <button onclick="window.open('https://github.com/cnan00/-3Sac/raw/3afbde450789a166a3e0bcc1119406ef5b7915be/WeeklyPromotionalOffers.pdf')">Download LS Everyday Promos FW 16</button>
+            <button onclick="composeEmail()">Send Feedback About This Site</button>
+
+<script>
+function composeEmail() {
+  const subject = "Feedback for LoveSac Outreach Message Generator";
+  const recipient = "mallofamerica@lovesac.com";
+  const message = "ATTN: Canaan G\n\nEnter feedback below:";
+
+  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  window.open(mailtoLink);
+}
+</script>
+
 
         </div>
     
