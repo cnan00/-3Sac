@@ -155,7 +155,7 @@
 function composeEmail() {
   const subject = "Feedback for LoveSac Outreach Message Generator";
   const recipient = "mallofamerica@lovesac.com";
-  const message = "ATTN: Canaan G\n\nEnter feedback below:";
+  const message = "ATTN: Canaan G\n\nEnter feedback below. Please be detailed in any features you would like to add or changes you would like to see.";
 
   const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
   window.open(mailtoLink);
