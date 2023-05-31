@@ -115,16 +115,16 @@
             <p>Enter the full purchase price:</p>
             <input type="number" id="purchasePrice" step="0.01" min="0" placeholder="Purchase price">
             
-            <p>Choose a discount.<br> (Memorial/Heroes - 25%)</p>
+            <p>Choose a discount.</p>
             <select id="discount">
                 <option value="0">No Discount</option>
                 <option value="0.1">10% 5-15 pcs</option>
                 <option value="0.15">15% 16-25 pcs</option>
                 <option value="0.2">20% 16+ pcs</option>
-                <option value="0.25">25% Special</option>
+               
             </select>
             
-            <p>Choose a financing option.<br>(Memorial - 24mo / Heroes - 48mo)</p>
+            <p>Choose a financing option.</p>
             <select id="financing">
                 <option value="0">No Financing</option>
                 <option value="6">6 months</option>
@@ -172,13 +172,11 @@ function composeEmail() {
     <button onclick="insertMonthlyFinancedPrice()">Insert Monthly Financed Price</button>
     <h3>...</h3>
     <select id="weekendMessageOption">
-        <option value="1">Heroes Sale Message 1</option>
-        <option value="2">Heroes Sale Message 2</option>
-        <option value="3">Heroes Sale Message 3</option>
-        <option value="4">SMSM Sale Message 1</option>
-        <option value="5">SMSM Sale Message 2</option>
-        <option value="6">SMSM Sale Message 3</option>
-        <option value="7">Memorial Day Sale Message 1</option>
+       
+        <option value="1">SMSM Sale Message 1</option>
+        <option value="2">SMSM Sale Message 2</option>
+        <option value="3">SMSM Sale Message 3</option>
+        
     </select>
     <button onclick="insertWeekendMessage()">Insert Preformed Message</button>
     <button onclick="insertSignature()">Insert Signature</button>
@@ -260,31 +258,19 @@ function insertWeekendMessage() {
 
     let message;
     switch (weekendMessageOption) {
+        
         case "1":
-            message = `Thank you for all that you do! As a small token of our appreciation, we're offering a Heroes Discount of ${discount}% off your purchase, with optional ${financingDuration} interest-free financing. That means you could be enjoying Total Comfort for as low as $${monthlyCost.toFixed(2)} per month! Offer ends 5/31, so don't wait to take advantage.`;
-            break;
-        case "2":
-            message = `To our heroes in healthcare, first responders, military, teachers, and veterinarians - thank you for your dedication and service. As a special thank you, we're offering a 25% Heroes Discount on your purchase, plus the option for ${financingDuration} interest-free financing. That means you can enjoy your new furniture for as little as $${monthlyCost.toFixed(2)} per month! Don't miss out on this limited-time offer.`;
-            break;
-        case "3":
-            message = `You're a hero every day, and we're honored to offer our Heroes Discount to show our appreciation. Enjoy ${discount}% off your purchase, with optional ${financingDuration} interest-free financing. That means you can bring home Total Comfort for as low as $${monthlyCost.toFixed(2)} per month! Thank you for all that you do.`;
-            break;
-        case "4":
             message = `Good afternoon (customer), exciting news – our Stack More Save More sale starts today with discounts up to ${discount}% and ${financingDuration} financing! The more you buy, the more you save. With this amazing offer, your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month! Give us a call or text the showroom, and let us help bring total comfort and style to your home.
 `;
             break;
-        case "5":
+        case "2":
             message = `Hello (customer), we have a fantastic Stack More Save More sale happening right now! Enjoy up to ${discount}% off and benefit from our ${financingDuration} financing option. This means your monthly payments can be as low as $${monthlyCost.toFixed(2)} per month! Don't hesitate to call or text the showroom, and let us assist you in upgrading your home with our customizable furniture.
 `;
             break;
-        case "6":
+        case "3":
             message = `Greetings (customer), our Stack More Save More sale is now live, offering you discounts of up to ${discount}% and ${financingDuration} financing! Take advantage of this opportunity, and your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month. Reach out to us by calling or texting the showroom, and we'll help you find the perfect pieces to enhance your living space.
 `;
-            break;
-        case "7":
-            message = `Celebrate Memorial Day with us and enjoy our special limited-time offer! Get ${discount}% off on all purchases, plus take advantage of our ${financingDuration} interest-free financing option. This means you can bring home your dream furniture for as low as $${monthlyCost.toFixed(2)} per month. This discount, financing offer, and affordable monthly cost are available to everyone as a token of our appreciation for your support. Transform your space with our high-quality furniture and experience ultimate comfort while enjoying flexible payment options. Don't miss out on this incredible deal! Visit our showroom, call or, text us today and discover the perfect furniture pieces for your home. Don't wait, this incredible offer ends Monday! 
-`;
-            break;
+            
         default:
             alert("Invalid weekend message option selected");
             return;
