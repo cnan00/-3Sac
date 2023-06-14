@@ -115,17 +115,17 @@
             <p>Enter the full purchase price:</p>
             <input type="number" id="purchasePrice" step="0.01" min="0" placeholder="Purchase price">
             
-            <p>Choose a discount. <Br> 25% Sac Flash Sale 6/5-6/11 </p>
+            <p>Choose a discount.<br>(Father's Day Sale - 25%)</p>
             <select id="discount">
                 <option value="0">No Discount</option>
                 <option value="0.1">10% 5-15 pcs</option>
                 <option value="0.15">15% 16-25 pcs</option>
                 <option value="0.2">20% 16+ pcs</option>
-                <option value="0.25">25% Sac/Covers/Accessories</option>
+                <option value="0.25">25% Special</option>
                
             </select>
             
-            <p>Choose a financing option.</p>
+            <p>Choose a financing option.<br>(Father's Day Sale - 24mo)</p>
             <select id="financing">
                 <option value="0">No Financing</option>
                 <option value="6">6 months</option>
@@ -177,6 +177,9 @@ function composeEmail() {
         <option value="1">SMSM Sale Message 1</option>
         <option value="2">SMSM Sale Message 2</option>
         <option value="3">SMSM Sale Message 3</option>
+        <option value="4">Father's Day Sale Message 1</option>
+        <option value="5">Father's Day Sale Message 2</option>
+        <option value="6">Father's Day Sale Message 3</option>
         
     </select>
     <button onclick="insertWeekendMessage()">Insert Preformed Message</button>
@@ -271,6 +274,19 @@ function insertWeekendMessage() {
         case "3":
             message = `Greetings (customer), our Stack More Save More sale is now live, offering you discounts of up to ${discount}% and ${financingDuration} financing! Take advantage of this opportunity, and your monthly payments could be as low as $${monthlyCost.toFixed(2)} per month. Reach out to us by calling or texting the showroom, and we'll help you find the perfect pieces to enhance your living space.
 `;
+            break;
+        case "4":
+            message = `Celebrate Father's Day with LoveSac! Get ${discount}% off on all purchases and enjoy the option of ${financingDuration} interest-free financing. Treat your dad to the ultimate comfort experience with our high-quality furniture. With monthly payments as low as $${monthlyCost.toFixed(2)}, there's never been a better time to shop. Hurry, this special sale ends on Monday. Don't miss out!
+`;
+            break;
+        case "5":
+            message = `This Father's Day, show your dad some love with a gift from LoveSac. Take advantage of our exclusive offer of ${discount}% off on all products, along with the option for ${financingDuration} interest-free financing. Make his space more comfortable and stylish. With monthly payments as low as $${monthlyCost.toFixed(2)}, you can give him the gift he truly deserves. Hurry, this sale ends on Monday!
+`;
+           break;
+        case "6":
+            message = `Celebrate the amazing dads in your life this Father's Day with LoveSac. Enjoy a special discount of ${discount}% off on all purchases and take advantage of our ${financingDuration} interest-free financing. Treat your dad to the gift of ultimate comfort and relaxation. With monthly payments as low as $${monthlyCost.toFixed(2)}, you can give him the gift that keeps on giving. Hurry, this sale ends on Monday!
+`;
+           break;
             
         default:
             alert("Invalid weekend message option selected");
