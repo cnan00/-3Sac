@@ -188,15 +188,19 @@ function composeEmail() {
     <button onclick="insertFinancingDuration()">Insert Financing Duration</button>
     <button onclick="insertMonthlyFinancedPrice()">Insert Monthly Financed Price</button>
     <h3>...</h3>
+ 
     <select id="weekendMessageOption">
        
-        <option value="1">SMSM Message 1</option>
-        <option value="2">SMSM Message 2</option>
-        <option value="3">SMSM Message 3</option>
-        <option value="4"> Text Sac Flash Sale</option>
+        <option value="1">SMSM Message 1*</option>
+        <option value="2">SMSM Message 2*</option>
+        <option value="3">SMSM Message 3*</option>
+        <option value="4"> Text Sac Flash Sale*</option>
+        <option value="5"> Email Sac Flash Sale*</option>
+        <option value="5"> Text Sac Flash Sale</option>
         <option value="5"> Email Sac Flash Sale</option> 
         
     </select>
+       <h3>* Custom message using calculated numbers</h3>
     <button onclick="insertWeekendMessage()">Insert Preformed Message</button>
     <button onclick="insertSignature()">Insert Signature</button>
     <textarea id="message" rows="10" cols="50"></textarea>
