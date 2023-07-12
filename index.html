@@ -14,10 +14,22 @@
             background-color: #F5F5F5;
         }
 
-        h1, h2 {
+        h1 {
             color: #0098A7;
             text-align: center;
             margin-top: 20px;
+        }
+        h2 {
+            color: #56585A;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        h3 {
+            color: #56585A;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 15px;
         }
 
         input, select, button, textarea {
@@ -112,6 +124,9 @@
         <div class="title-wrapper">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIM70KdDbF2LUH6K4HkF3Th5RxL8G67e_H2kod7SMm&s" alt="LoveSac" class="logo">
             <h1>Outreach Message Generator</h1>
+            <h2>Current Promo:</h2>
+            <body>Sac Flash Sale: 25% off (Optional 6/12 month financing)</body>
+            <hr>
             <p>Enter the full purchase price:</p>
             <input type="number" id="purchasePrice" step="0.01" min="0" placeholder="Purchase price">
             
@@ -121,12 +136,12 @@
                 <option value="0.1">10% 5-15 pcs</option>
                 <option value="0.15">15% 16-25 pcs</option>
                 <option value="0.2">20% 16+ pcs</option>
-                <option value="0.25">25% 4th of July Sale</option>
-                <option value="0.30">30% Sac Bundle</option>
+                <option value="0.25">25% Sac Flash Sale</option>
+                <option value="0.30">30% Special</option>
                
             </select>
             
-            <p>Choose a financing option.<br> 4th of July/Sac bundle - 24 Month financing</p>
+            <p>Choose a financing option.<br> 6 or 12 month standard financing for all promos</p>
             <select id="financing">
                 <option value="0">No Financing</option>
                 <option value="6">6 months</option>
