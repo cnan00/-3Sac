@@ -125,7 +125,7 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIM70KdDbF2LUH6K4HkF3Th5RxL8G67e_H2kod7SMm&s" alt="LoveSac" class="logo">
             <h1>Outreach Message Generator</h1>
             <h2>Current Promo:</h2>
-            <body>Sac Flash Sale: 25% off (Optional 6 or 12 month financing)</body>
+            <body>Back to School Sale: 25% off (July 25 - August 10)</body>
             <hr>
             <p>Enter the full purchase price:</p>
             <input type="number" id="purchasePrice" step="0.01" min="0" placeholder="Purchase price">
@@ -136,7 +136,7 @@
                 <option value="0.1">10% 5-15 pcs</option>
                 <option value="0.15">15% 16-25 pcs</option>
                 <option value="0.2">20% 16+ pcs</option>
-                <option value="0.25">25% Sac Flash Sale</option>
+                <option value="0.25">25% Back to School Sale</option>
                 <option value="0.30">30% Special</option>
                
             </select>
@@ -164,22 +164,7 @@
             <div class="result-wrapper">
                 <h2>Monthly Cost:</h2>
                 <p id="monthlyCost"></p>
-            </div>
-            <button onclick="composeEmail()">Send Feedback About This Site</button>
-
-<script>
-function composeEmail() {
-  const subject = "Feedback for LoveSac Outreach Message Generator";
-  const recipient = "mallofamerica@lovesac.com";
-  const message = "ATTN: Canaan G\n\nEnter feedback below. Please be detailed in any features you would like to add or changes you would like to see.";
-
-  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-  window.open(mailtoLink);
-}
-</script>
-
-
-        </div>
+        
     
 
             <div class="form-section">
@@ -194,10 +179,8 @@ function composeEmail() {
         <option value="1">SMSM Message 1*</option>
         <option value="2">SMSM Message 2*</option>
         <option value="3">SMSM Message 3*</option>
-        <option value="4"> Text Sac Flash Sale*</option>
-        <option value="5"> Email Sac Flash Sale*</option>
-        <option value="6"> Text Sac Flash Sale</option>
-        <option value="7"> Email Sac Flash Sale</option> 
+        <option value="6"> Text Back to School Sale</option>
+        <option value="7"> Email Back to School Sale</option> 
         
     </select>
        <h3>* Custom message using calculated numbers</h3>
@@ -307,16 +290,26 @@ The LoveSac Team
 `;
             break;
         case "6":
-            message = `Enjoy 25% off all Sacs and Covers at LoveSac! Plus, take advantage of up to 12-month interest-free financing. Visit a showroom and upgrade your comfort and style today. Limited time offer!
+            message = `🎒📚 Back to School Promo 📚🎒
+Get ready for a new school year with Lovesac! Enjoy 25% off on all our comfy and stylish furniture for a limited time. Plus, take advantage of up to 12 months interest-free financing. Visit our store or website now to upgrade your study space! 🏫🎉
+
 `;
             break;
         case "7":
-            message = `We're thrilled to present an exclusive offer just for you! For a limited time, enjoy an incredible 25% discount on all Sacs and Covers at LoveSac. Elevate your comfort and transform your living space with our premium selection.
-But wait, there's more! We're also offering up to 12-month interest-free financing to make your purchase even more convenient. Experience the ultimate in relaxation and style without compromising your budget.
-Explore our wide range of Sacs and Covers, designed to meet your unique preferences and match your home decor seamlessly. From cozy loungers to versatile sectionals, we have the perfect piece for every lifestyle.
-Visit our showroom or browse our online store to discover the endless possibilities of comfort and style. Don't miss out on this exclusive offer. Upgrade your living space with LoveSac today!
+            message = `Get ready for the new school year with incredible savings at Lovesac! 🏫🎉
+
+For a limited time, we're offering 25% off on all our comfortable and stylish furniture. Create the perfect study space with our versatile Sacs, stylish Covers, and functional accessories.
+
+But that's not all! You can also take advantage of up to 12 months interest-free financing to make your dream space a reality without breaking the bank.
+
+Visit our website or stop by our store to explore our wide range of options and design your ideal Back to School setup.
+
+Hurry, this offer ends soon! Don't miss out on these amazing deals.
+
+Wishing you a successful and cozy school year!
+
 Best regards,
-The LoveSac Team
+The Lovesac Team
 `;
             break;
             
